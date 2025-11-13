@@ -1,0 +1,13 @@
+{
+  "name": "Lightning Bounties",
+  "short_description": "Earn Bitcoin with GitHub pull request",
+  "tile": "/lightningbounties/static/logo.png",
+  "min_lnbits_version": "1.0.0",
+  "contributors": [
+    {
+      "name": "Enrique Gamboa",
+      "uri": "https://www.lightningbounties.com/",
+      "role": "Developer"
+    }
+  ]
+}
