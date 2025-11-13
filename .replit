@@ -1,0 +1,42 @@
+modules = ["python-3.10", "nodejs-20", "vue-node-20", "web"]
+[agent]
+expertMode = true
+
+[nix]
+channel = "stable-25_05"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "LNbits Server"
+
+[[workflows.workflow]]
+name = "LNbits Server"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "bash run_lnbits.sh"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[[ports]]
+localPort = 34753
+externalPort = 3000
+
+[deployment]
+deploymentTarget = "vm"
+run = ["bash", "run_lnbits.sh"]
